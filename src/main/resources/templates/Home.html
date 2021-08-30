@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8"/>
+<title>Home</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 d-flex mb-4">
+					<div class="align-self-center">
+						<h2 class="display-4">A imobiliária digital livre de burocracia.</h2>
+						<h1>Anuncie Grátis!</h1>
+						<p class="mb-4">Anuncie seu imóvel para aluguel ou venda agora mesmo.</p>	
+						
+						<p class="text-primary mt-4">Disponível para 
+							<a href="#" class="btn btn-outline-primary">
+								<i class="fas fa-mobile-alt fa-lg"></i>
+							</a>
+						</p>
+					</div>
+				</div>	
+				
+				<div class="col-md-6 d-none d-md-block">
+					<img src="/img/capa-mulher.png" width="800px">
+				</div>		
+			</div>
+		</div>
+	</section>
+	
+	
+	<footer class="mt-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<p>
+						<a href="#">Política de Privacidade</a>
+						<a href="#">Termos e Condições de Uso</a>
+						<a href="#">Manual do Usuário</a>
+					</p>
+				</div>
+				
+				<div class="col-md-4 d-flex justify-content-end">
+					<div class="dark">
+						<i class="fab fa-facebook-square fa-lg"></i>
+						<i class="fab fa-instagram fa-lg"></i>
+						<i class="fab fa-twitter fa-lg"></i>
+						<i class="fab fa-linkedin fa-lg"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+		
+</div>
+</body>
+</html>

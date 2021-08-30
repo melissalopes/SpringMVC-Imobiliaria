@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8"/>
+<title>Pesquisa Estado</title>
+</head>
+<body>
+<div layout:fragment="content">
+	<div class="table-responsive">
+	<table class="table table-bordered table-hover">	
+		<thead>
+			<tr>
+				<th class="text-center">#</th>
+				<th >Uf</th>
+				<th>Estado</th>
+				<th class="text-center">Ações</th>
+			</tr>
+		</thead>		
+		<tbody>
+			<tr th:each="estados : ${todosEstados}">
+				<td class="text-center" th:text="${estados.id}"></td>
+				<td th:text="${estados.uf}"></td>
+				<td th:text="${estados.nomeEstado}"></td>
+				<td class="text-center">
+					<a class="btn btn-info" th:href="@{/estados/pesquisa/{codigo}(codigo=${estados.id})}">Editar</a>
+					<a class="btn btn-dark" th:href="@{/estados/excluir/{codigo}(codigo=${estados.id})}">Excluir</a>
+				</td>
+			</tr>
+		</tbody>	
+	</table>
+	</div>
+</div>
+</body>
+</html>

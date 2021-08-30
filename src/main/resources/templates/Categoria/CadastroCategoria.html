@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8"/>
+<title>Cadastra Categoria</title>
+</head>
+<body>
+<div layout:fragment="content">
+	<form method="POST" action="/categorias/novo" th:object="${categoria}">
+		<input type="hidden" th:field="*{id}"/>
+		
+		<div class="form-group">
+    		<label for="nomeCategoria">Nova Categoria</label>
+    		<input class="form-control" type="text" name="nomeCategoria" id="nomeCategoria"
+    		       placeholder="Nome da Categoria" th:field="*{nomeCategoria}">
+  		</div>
+		  
+		<button class="btn btn-outline-success" type="submit">Cadastrar</button>
+	</form>
+</div>
+</body>
+</html>

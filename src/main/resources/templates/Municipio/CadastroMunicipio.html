@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8"/>
+<title>Cadastro Município</title>
+</head>
+<body>
+<div layout:fragment="content">
+	<form method="POST" action="/municipios/novo" th:object="${municipio}">
+	  	<input type="hidden" th:field="*{id}"/>
+		
+		<div class="form-group">
+    		<label for="nomeMunicipio">Nome Municipio </label>
+    		<input class="form-control" type="text" name="nomeMunicipio" id="nomeMunicipio"
+    		       placeholder="Nome do Municipio" th:field="*{nomeMunicipio}">
+  		</div>
+		  
+		<div class="form-group">
+			<label>Estado</label>
+			<select class="form-control" th:field="*{estado}" >
+				<option th:each="estado : ${todosEstados}" th:value="${estado.id}" th:text="${estado.nomeEstado}" />
+			</select>
+		</div>
+		  
+		<button class="btn btn-outline-success" type="submit">Cadastrar</button>
+	</form>
+</div>
+</body>
+</html>

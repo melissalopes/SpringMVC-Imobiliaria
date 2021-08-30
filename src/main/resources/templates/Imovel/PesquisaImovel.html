@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8"/>
+<title>Pesquisa Imovel</title>
+</head>
+<body>
+<div layout:fragment="content">
+	<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th class="text-center">#</th>
+				<th class="text-center">Quartos</th>
+				<th>Categoria</th>
+				<th>Negócio</th>
+				<th>Estado</th>
+				<th>Município</th>
+				<th>Bairro</th>
+				<th class="text-center">Ações</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="imoveis : ${todosImoveis}">
+				<td class="text-center" th:text="${imoveis.id}"></td>
+				<td class="text-center" th:text="${imoveis.qtdQuartos}"></td>
+				<td th:text="${imoveis.categoria.nomeCategoria}"></td>
+				<td th:text="${imoveis.negocio.nomeNegocio}"></td>
+				<td th:text="${imoveis.estado.nomeEstado}"></td>
+				<td th:text="${imoveis.municipio.nomeMunicipio}"></td>
+				<td th:text="${imoveis.bairro.nomeBairro}"></td>
+				
+				<td class="text-center">
+		  			<a class="btn btn-info" th:href="@{/imoveis/pesquisa/{codigo}(codigo=${imoveis.id})}">Editar</a>
+					<a class="btn btn-dark" th:href="@{/imoveis/excluir/{codigo}(codigo=${imoveis.id})}">Excluir</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</div>
+</body>
+</html>

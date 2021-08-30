@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8"/>
+<title>Pesquisa Bairro</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+	<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+	
+		<thead>
+			<tr>
+				<th class="text-center"><strong>#</strong></th>
+				<th>Bairro</th>
+				<th>Município</th>
+				<th class="text-center">Ações</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="bairros : ${todosBairros}">
+				<td class="text-center" th:text="${bairros.id}"></td>
+				<td th:text="${bairros.nomeBairro}"></td>
+				<td th:text="${bairros.municipio.nomeMunicipio}"></td>
+				<td class="text-center">
+					<a class="btn btn-info" th:href="@{/bairros/pesquisa/{codigo}(codigo=${bairros.id})}">Editar</a>
+					<a class="btn btn-dark" th:href="@{/bairros/excluir/{codigo}(codigo=${bairros.id})}">Excluir</a>
+				</td>
+			</tr>
+		</tbody>
+		
+	</table>
+	</div>
+</div>
+</body>
+</html>

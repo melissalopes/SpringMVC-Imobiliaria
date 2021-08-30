@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8"/>
+<title>Cadastro Negócio</title>
+</head>
+<body>
+<div layout:fragment="content">
+	<form method="POST" action="/negocios/novo" th:object="${negocio}">
+		<input type="hidden" th:field="*{id}">
+		
+		<div class="form-group">
+    		<label for="nomeNegocio">Nome Negócio</label>
+    		<input class="form-control" type="text" name="nomeNegocio" id="nomeNegocio"
+    		       placeholder="Tipo Negócio" th:field="*{nomeNegocio}">
+  		</div>
+		   
+		<button class="btn btn-outline-success" type="submit">Cadastrar</button>
+	</form>
+</div>
+</body>
+</html>

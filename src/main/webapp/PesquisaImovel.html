@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"/>
+<title>Pesquisa Imovel</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nome:</th>
+				<th>Ações:</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="imoveis : ${todosImoveis}">
+				<td th:text="${imoveis.id}"></td>
+				<td th:text="${imoveis.nomeNegocio}"></td>
+				<td>
+		  			<a th:href="@{/imoveis/pesquisa/{codigo}(codigo=${imoveis.id})}">Editar</a>
+					<a th:href="@{/imoveis/excluir/{codigo}(codigo=${imoveis.id})}">Excluir</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

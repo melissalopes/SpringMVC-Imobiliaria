@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8"/>
+<title>Pesquisa Categoria</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+	<div class="table-responsive">
+	<table class="table table-bordered table-hover">	
+		<thead>
+			<tr>
+				<th class="text-center">#</th>
+				<th>Categoria</th>
+				<th class="text-center">Ações</th>
+			</tr>
+		</thead>		
+		<tbody>
+			<tr th:each="categorias : ${todasCategorias}">
+				<td class="text-center" th:text="${categorias.id}"></td>
+				<td th:text="${categorias.nomeCategoria}"></td>
+				<td class="text-center">
+					<a class="btn btn-info" th:href="@{/categorias/pesquisa/{codigo}(codigo=${categorias.id})}">Editar</a>
+					<a class="btn btn-dark" th:href="@{/categorias/excluir/{codigo}(codigo=${categorias.id})}">Excluir</a>
+				</td>
+			</tr>
+		</tbody>		
+	</table>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8"/>
+<title>Cadastro Imovel</title>
+</head>
+<body>
+<div layout:fragment="content">
+	<form method="POST" action="/imoveis/novo" th:object="${imovel}">
+		<input type="hidden" th:field="*{id}">		
+		
+		<div class="form-group">
+    		<label for="qtdQuartos">Quantidade de quartos </label>
+    		<input class="form-control" type="text" name="qtdQuartos" id="qtdQuartos"
+    		       placeholder="Quantidade" th:field="*{qtdQuartos}">
+  		</div>
+  		
+		<div class="form-group">
+			<label>Categoria</label>
+			<select class="form-control" th:field="*{categoria}" >
+				<option th:each="categoria : ${todasCategorias}" th:value="${categoria.id}" th:text="${categoria.nomeCategoria}" />
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label>Negocio</label>
+			<select class="form-control" th:field="*{negocio}" >
+				<option th:each="negocio : ${todosNegocios}" th:value="${negocio.id}" th:text="${negocio.nomeNegocio}" />
+			</select>
+		</div>
+		
+		<div class="form-row mb-4">
+			<div class="col-5">
+				<label>Estado</label>
+				<select class="form-control" th:field="*{estado}" >
+					<option th:each="estado : ${todosEstados}" th:value="${estado.id}" th:text="${estado.nomeEstado}" />
+				</select>
+			</div>
+			
+			<div class="col-4">
+				<label>Município</label>
+				<select class="form-control" th:field="*{municipio}" >
+					<option th:each="municipio : ${todosMunicipios}" th:value="${municipio.id}" th:text="${municipio.nomeMunicipio}" />
+				</select>
+		    </div>
+		
+		    <div class="col-3">
+				<label>Bairro</label>
+				<select class="form-control" th:field="*{bairro}" >
+					<option th:each="bairro : ${todosBairros}" th:value="${bairro.id}" th:text="${bairro.nomeBairro}" />
+				</select>
+		    </div>
+		</div>
+
+		<button class="btn btn-outline-success" type="submit">Cadastrar</button>
+	</form>
+</div>
+</body>
+</html>
